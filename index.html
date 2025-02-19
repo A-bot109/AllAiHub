@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All AI Websites 200+</title>
+  <style>
+    /* Reset and basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    /* Social Links */
+    .social {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .social a {
+      background: #444;
+      padding: 5px 8px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .social a:hover {
+      transform: scale(1.2);
+    }
+    /* Search Field */
+    .search-container {
+      flex: 1;
+      text-align: right;
+    }
+    .search-container input {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 200px;
+    }
+    /* Main Section */
+    section {
+      text-align: center;
+    }
+    section h1 {
+      margin-bottom: 20px;
+    }
+    /* Service Buttons Grid */
+    .service-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 15px;
+      justify-items: center;
+    }
+    .service-button {
+      background: #007BFF;
+      color: #fff;
+      padding: 15px 10px;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      width: 100%;
+      text-align: center;
+    }
+    .service-button:hover {
+      background: #0056b3;
+      transform: scale(1.03);
+    }
+    .service-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .service-info {
+      font-size: 13px;
+      line-height: 1.3;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Social Links and Search -->
+  <header>
+    <div class="social">
+      <span>Follow us:</span>
+      <a href="https://www.instagram.com" target="_blank">instagram</a>
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <a href="https://www.youtube.com" target="_blank">Youtube</a>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search AI Services..." onkeyup="filterServices()">
+    </div>
+  </header>
+  
+  <!-- Main Services Section -->
+  <section id="services">
+    <h1>All Usefull  AI Websites(200+) or coming soon  </h1>
+    <div class="service-buttons" id="serviceButtons"></div>
+  </section>
+  
+  <script>
+    // Manually defined popular AI websites
+    const services = [
+      { name: "OpenAI ChatGPT", url: "https://chat.openai.com/", info: "Interactive AI conversation tool." },
+      { name: "OpenAI DALL-E", url: "https://openai.com/dall-e-2/", info: "Generates images from text prompts." },
+      { name: "DeepAI", url: "https://deepai.org/", info: "Various AI tools and APIs for image and text." },
+      { name: "Hugging Face", url: "https://huggingface.co/", info: "Hub for AI models and NLP research." },
+      { name: "Google AI", url: "https://ai.google/", info: "Google’s AI research and solutions." },
+      { name: "IBM Watson", url: "https://www.ibm.com/watson", info: "Cognitive solutions for business applications." },
+      { name: "Microsoft AI", url: "https://www.microsoft.com/ai", info: "AI products and cloud services by Microsoft." },
+      { name: "NVIDIA AI", url: "https://www.nvidia.com/en-us/artificial-intelligence/", info: "AI solutions using GPU acceleration." },
+      { name: "Midjourney", url: "https://www.midjourney.com/", info: "Generates artistic images using AI." },
+      { name: "GitHub Copilot", url: "https://github.com/features/copilot", info: "AI-powered code completion assistant." },
+      { name: "Jasper AI", url: "https://www.jasper.ai/", info: "Content creation for marketing and copywriting." },
+      { name: "Copy.ai", url: "https://www.copy.ai/", info: "Generates creative marketing copy with AI." },
+      { name: "Writesonic", url: "https://writesonic.com/", info: "AI content generation for blogs and ads." },
+      { name: "Synthesia", url: "https://www.synthesia.io/", info: "Create videos with AI avatars from text." },
+      { name: "Replika", url: "https://replika.ai/", info: "AI companion for conversation and support." },
+      { name: "AI Dungeon", url: "https://play.aidungeon.io/", info: "Interactive text adventure game powered by AI." },
+      { name: "Lumen5", url: "https://lumen5.com/", info: "Transforms text content into engaging videos." },
+      { name: "Runway ML", url: "https://runwayml.com/", info: "Creative video and art tools powered by ML." },
+      { name: "DeepArt", url: "https://deepart.io/", info: "Transforms photos into art with AI." },
+      { name: "Artbreeder", url: "https://www.artbreeder.com/", info: "Collaborative AI art and image generation." },
+      { name: "This Person Does Not Exist", url: "https://thispersondoesnotexist.com/", info: "Generates realistic human faces." },
+      { name: "StyleGAN2", url: "https://github.com/NVlabs/stylegan2", info: "Advanced GAN for image synthesis." },
+      { name: "AIVA", url: "https://www.aiva.ai/", info: "Composes original music with AI." },
+      { name: "Boomy", url: "https://boomy.com/", info: "Create and release music tracks using AI." },
+      { name: "Resemble AI", url: "https://www.resemble.ai/", info: "AI voice cloning and speech synthesis." },
+      { name: "Descript", url: "https://www.descript.com/", info: "Audio and video editing with AI transcription." },
+      { name: "Pictory", url: "https://pictory.ai/", info: "Automatically create short videos from text." },
+      { name: "Play.ht", url: "https://play.ht/", info: "Convert text into realistic AI voices." },
+      { name: "Socratic", url: "https://socratic.org/", info: "AI-driven homework help and learning." },
+      { name: "Kuki AI", url: "https://kukibot.com/", info: "Conversational AI chatbot experience." },
+      { name: "InferKit", url: "https://inferkit.com/", info: "Generate creative text with AI models." },
+      { name: "AI Experiments", url: "https://experiments.withgoogle.com/collection/ai", info: "Creative AI experiments by Google." },
+      { name: "OpenAI API", url: "https://openai.com/api/", info: "Access advanced AI models via API." },
+      { name: "Stability AI", url: "https://stability.ai/", info: "Developer of cutting-edge image generation AI." },
+      { name: "Cogram", url: "https://cogram.com/", info: "AI assistant for data analysis and coding." },
+      { name: "Coqui", url: "https://coqui.ai/", info: "Open-source speech recognition and synthesis." },
+      { name: "EleutherAI", url: "https://www.eleuther.ai/", info: "Open-source AI research collective." },
+      { name: "VALL-E", url: "https://www.microsoft.com/en-us/research/project/vall-e/", info: "Microsoft’s advanced text-to-speech model." },
+      { name: "Clearword", url: "https://www.clearword.ai/", info: "AI meeting assistant for summarizing discussions." },
+      { name: "Gamma", url: "https://gamma.app/", info: "Create presentations and documents using AI." },
+      { name: "Notion AI", url: "https://www.notion.so/product/ai", info: "Enhance productivity with AI-powered tools." },
+      { name: "Grammarly AI", url: "https://www.grammarly.com/", info: "Improve your writing with AI grammar checks." },
+      { name: "ChatSonic", url: "https://writesonic.com/chatsonic", info: "Conversational AI for creative content." },
+      { name: "ContentBot", url: "https://contentbot.ai/", info: "Generate marketing content using AI." },
+      { name: "INK Editor", url: "https://inkforall.com/", info: "AI writing assistant for content creators." },
+      { name: "Wordtune", url: "https://www.wordtune.com/", info: "Rephrase and improve text with AI." },
+      { name: "DeepL Translator", url: "https://www.deepl.com/translator", info: "High-quality translation powered by AI." },
+      { name: "Elicit", url: "https://elicit.org/", info: "AI research assistant for literature review." },
+      { name: "Primer", url: "https://www.primer.ai/", info: "Automated analysis and summarization with AI." },
+      { name: "Fermat", url: "https://fermat.ai/", info: "AI solutions for mathematical problem solving." },
+      { name: "Conversica", url: "https://www.conversica.com/", info: "AI sales and customer service assistant." },
+      { name: "Xnor", url: "https://www.xnor.ai/", info: "Efficient AI models for edge devices." },
+      { name: "Veed.io", url: "https://www.veed.io/", info: "Online video editing powered by AI." },
+      { name: "DeepBrain AI", url: "https://www.deepbrainai.io/", info: "AI video synthesis and deep learning." },
+      { name: "Affectiva", url: "https://www.affectiva.com/", info: "Emotion AI for understanding facial expressions." },
+      { name: "ObEN", url: "https://www.oben.com/", info: "Personal AI technology for digital avatars." },
+      { name: "Krisp", url: "https://krisp.ai/", info: "Noise cancellation and voice enhancement using AI." },
+      { name: "Soundraw", url: "https://soundraw.io/", info: "Generate unique music tracks with AI." },
+      { name: "LALAL.AI", url: "https://www.lalal.ai/", info: "AI-powered stem separation for audio files." },
+      { name: "Aive", url: "https://www.aive.ai/", info: "Automated video editing and content creation." },
+      { name: "Neural.love", url: "https://neural.love/", info: "Enhance images and videos using AI." },
+      { name: "Hotpot AI", url: "https://hotpot.ai/", info: "Creative tools for art and design using AI." },
+      { name: "Remove.bg", url: "https://www.remove.bg/", info: "Automatically remove backgrounds from images." },
+      { name: "Cleanup.pictures", url: "https://cleanup.pictures/", info: "Remove unwanted objects from photos using AI." },
+      { name: "Colossyan", url: "https://www.colossyan.com/", info: "AI-driven video creation with virtual actors." },
+      { name: "Deep Nostalgia", url: "https://www.myheritage.com/deep-nostalgia", info: "Animate old photos using AI." },
+      { name: "Flair", url: "https://flair.ai/", info: "Generate and enhance creative designs with AI." },
+      { name: "AISEO", url: "https://aiseo.ai/", info: "SEO content generation powered by AI." },
+      { name: "Zyro AI Content Generator", url: "https://zyro.com/tools/ai-content-generator", info: "Create content and website copy using AI." },
+      { name: "Jina AI", url: "https://jina.ai/", info: "Neural search and data processing powered by AI." },
+      { name: "PicSo", url: "https://picso.ai/", info: "Create digital art from text prompts using AI." },
+      { name: "Sloyd", url: "https://sloyd.ai/", info: "Generate and manipulate 3D models with AI." },
+      { name: "Kaiber", url: "https://www.kaiber.ai/", info: "AI-powered video generation from text descriptions." },
+      { name: "Aster", url: "https://www.aster.ai/", info: "Analytics and insights powered by AI." },
+      { name: "CopySmith", url: "https://copysmith.ai/", info: "Generate creative marketing copy using AI." },
+      { name: "AdCreative.ai", url: "https://www.adcreative.ai/", info: "Create advertising creatives with AI support." },
+      { name: "Brainfish", url: "https://www.brainfish.com/", info: "Data-driven decision making with AI." },
+      { name: "Murf", url: "https://murf.ai/", info: "AI voice synthesis for voiceovers and narration." },
+      { name: "Pencil", url: "https://www.pencil.ai/", info: "Creative advertising powered by AI." },
+      { name: "Gamma.app", url: "https://gamma.app/", info: "Design presentations and documents using AI." },
+      { name: "Kive", url: "https://www.kive.ai/", info: "Platform for AI-generated art and design." }
+    ];
+    
+    // If total entries are less than 200, add dummy entries
+    const targetCount = 200;
+    let currentCount = services.length;
+    for (let i = currentCount + 1; i <= targetCount; i++) {
+      services.push({
+        name: "AI Website " + i,
+        url: "https://example.com/ai-website-" + i,
+        info: "This is a dummy entry for AI Website " + i + "."
+      });
+    }
+    
+    const serviceButtonsContainer = document.getElementById("serviceButtons");
+    
+    // Function to display service buttons with two lines: name and info
+    function displayServices(filteredServices) {
+      serviceButtonsContainer.innerHTML = "";
+      filteredServices.forEach(service => {
+        const a = document.createElement("a");
+        a.className = "service-button";
+        a.href = service.url;
+        a.target = "_blank";
+        
+        // Create a span for service name
+        const nameSpan = document.createElement("span");
+        nameSpan.className = "service-name";
+        nameSpan.textContent = service.name;
+        
+        // Create a span for service info
+        const infoSpan = document.createElement("span");
+        infoSpan.className = "service-info";
+        infoSpan.textContent = service.info;
+        
+        // Append both to the anchor
+        a.appendChild(nameSpan);
+        a.appendChild(infoSpan);
+        
+        serviceButtonsContainer.appendChild(a);
+      });
+    }
+    
+    // Initial display of all services
+    displayServices(services);
+    
+    // Filter services based on search input
+    function filterServices() {
+      const searchValue = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = services.filter(service =>
+        service.name.toLowerCase().includes(searchValue) ||
+        service.info.toLowerCase().includes(searchValue)
+      );
+      displayServices(filtered);
+    }
+  </script>
+</body>
+</html>
